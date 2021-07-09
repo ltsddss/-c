@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlw.mapper.relationMapper">
+    <insert id="addRelation" parameterType="Relation">
+        insert into tst_sm.relation (mid, sid, relation) value (#{mid},#{sid},#{relation})
+    </insert>
+
+    <delete id="deleteRelation" parameterType="int">
+        delete from tst_sm.relation where id=#{id}
+    </delete>
+
+    <select id="queryRelation" parameterType="String" resultType="Relation">
+        select * from tst_sm.relation where mid=#{username}
+    </select>
+
+    <select id="queryRelationbyid" parameterType="int" resultType="Relation">
+        select * from tst_sm.relation where id=#{id}
+    </select>
+
+    <update id="updateRelation" parameterType="Relation">
+        update tst_sm.relation set sid=#{sid},relation=#{relation} where id=#{id}
+    </update>
+</mapper>

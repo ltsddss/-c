@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改关系</title>
+</head>
+<body>
+<form th:action="@{/updaterelation}">
+
+    <input type="hidden" name="relationID" th:value="${msg.getId()}"/>
+    <input type="text" name="sid" th:placeholder="对方id">
+    <input type="text" name="relation" th:placeholder="与对方的关系">
+
+    <input type="submit" value="确认">
+</form>
+
+</body>
+</html>

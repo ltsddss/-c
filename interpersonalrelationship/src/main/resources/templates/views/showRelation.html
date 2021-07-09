@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>展示人际关系</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h1>
+                    <small>关系列表 —— 显示所有关系</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <p th:text="${msg}"></p>
+
+    <div class="row">
+        <div class="col-md-4 column">
+            <a class="btn btn-primary" th:href="@{/toAdd}">新增</a>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>我的昵称</th>
+                    <th>对方昵称</th>
+                    <th>与我的关系</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tbody th:each="relation:${msglist}">
+                    <tr>
+                        <td th:text="${relation.getId()}"></td>
+                        <td th:text="${relation.getMid()}"></td>
+                        <td th:text="${relation.getSid()}"></td>
+                        <td th:text="${relation.getRelation()}"></td>
+                        <td>
+                            <a th:href="@{/toupdaterelation(id=${relation.getId()})}">修改</a> |
+                            <a th:href="@{/deleterelation(id=${relation.getId()})}">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

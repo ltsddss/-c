@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zlw.mapper.personMapper">
+    <insert id="addUser" parameterType="person">
+        insert into tst_sm.person (name, age, password) value (#{name}, #{age}, #{password})
+    </insert>
+
+    <delete id="deleteUser" parameterType="String">
+        delete from tst_sm.person where name=#{username}
+    </delete>
+
+    <select id="queryUser" parameterType="String" resultType="person">
+        select * from tst_sm.person where tst_sm.person.name=#{username}
+    </select>
+
+    <update id="updateUser" parameterType="person">
+        update tst_sm.person set name=#{name},age=#{age},password=#{password}
+    </update>
+</mapper>

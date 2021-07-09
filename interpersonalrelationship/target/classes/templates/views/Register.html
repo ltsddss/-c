@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+
+<form th:action="@{/Register}">
+    <input type="text" name="username" th:placeholder="#{Login.username}">
+    <input type="password" name="password" th:placeholder="#{Login.password}">
+
+    <button type="submit">注册</button>
+    <a th:href="@{/Register.html(l='zh_CN')}">中文</a>
+    <a th:href="@{/Register.html(l='en_US')}">English</a>
+</form>
+
+</body>
+</html>
